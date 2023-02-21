@@ -1,0 +1,51 @@
+# extra NL or CR do not create empty rows
+
+# to create an empty row with an empty value do
+""
+
+# spaces are part of values
+ a, b ,c 
+, a, b ,c 
+ a, b ,c ,
+, a, b ,c ,
+
+# double quote commas in a value
+A,",B","C,",D
+
+# double quoted text can be embedded in a value
+A"a ""test""
+and some, text,
+with whatever"B
+
+# some stuff from Wikipedia https://en.wikipedia.org/wiki/Comma-separated_values
+1997,Ford,E350
+
+"1997","Ford","E350"
+
+1997,Ford,E350,"Super, luxurious truck"
+
+1997,Ford,E350,"Super, ""luxurious"" truck"
+
+1997,Ford,E350,"Go get one now
+they are going fast"
+
+1997, Ford, E350
+not same as
+1997,Ford,E350
+
+1997, "Ford" ,E350
+
+1997,Ford,E350," Super luxurious truck "
+
+Los Angeles,34°03′N,118°15′W
+New York City,40°42′46″N,74°00′21″W
+Paris,48°51′24″N,2°21′03″E
+
+Year,Make,Model,Description,Price
+1997,Ford,E350,"ac, abs, moon",3000.00
+1999,Chevy,"Venture ""Extended Edition""","",4900.00
+1999,Chevy,"Venture ""Extended Edition, Very Large""","",5000.00
+1996,Jeep,Grand Cherokee,"MUST SELL!
+air, moon roof, loaded",4799.00
+
+
