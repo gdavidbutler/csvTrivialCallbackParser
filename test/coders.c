@@ -7,6 +7,7 @@
 
 int
 main(
+  void
 ){
   static const unsigned char enc1[] = "This is a test - how did it do?";
   static const unsigned char dnc1[] = "This is a test - how did it do?";
