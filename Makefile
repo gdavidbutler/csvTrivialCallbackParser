@@ -6,13 +6,13 @@ clean:
 	rm -f csv.o coders main
 
 csv.o: csv.c csv.h
-	cc $(CFLAGS) -c csv.c
+	$(CC) $(CFLAGS) -c csv.c
 
 coders: test/coders.c csv.h csv.o
-	cc $(CFLAGS) -o coders test/coders.c csv.o
+	$(CC) $(CFLAGS) -o coders test/coders.c csv.o
 
 main: test/main.c csv.h csv.o
-	cc $(CFLAGS) -o main test/main.c csv.o
+	$(CC) $(CFLAGS) -o main test/main.c csv.o
 
 check: coders main
 	./coders

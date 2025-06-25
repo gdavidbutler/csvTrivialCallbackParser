@@ -45,8 +45,8 @@ err:
 val:
   vl.s = s;
   for (; l--;) switch (*s++) {
-  case '\n': case '\r':
-    ++l, --s;
+  case '\n':
+    --s;
     vl.l = s - vl.s;
     if (c && c(csvTp_Cv, rw, cl, &vl, v))
       goto rtn;
@@ -54,7 +54,11 @@ val:
     if (c && c(csvTp_Ce, rw, cl, &vl, v))
       goto rtn;
     ++rw;
+    ++s;
     goto bgn;
+
+  case '\r':
+    break;
 
   case '"':
     for (; l; --l, ++s)
@@ -80,7 +84,16 @@ val:
 bgn:
   cl = 0;
   for (; l--;) switch (*s++) {
-  case '\n': case '\r':
+  case '\n':
+    vl.s = s, vl.l = 0;
+    if (c && c(csvTp_Cb, rw, cl, &vl, v))
+      goto rtn;
+    if (c && c(csvTp_Ce, rw, cl, &vl, v))
+      goto rtn;
+    ++rw;
+    break;
+
+  case '\r':
     break;
 
   default:

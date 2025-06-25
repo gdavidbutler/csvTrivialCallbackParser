@@ -18,13 +18,13 @@ cb(
   (void)v;
   switch (t) {
   case csvTp_Cb:
-    printf("B %d @%p\n", r, (void *)l->s);
+    printf("B %u @%p\n", r, (void *)l->s);
     break;
   case csvTp_Ce:
-    printf("E %d @%p\n", r, (void *)l->s);
+    printf("E %u @%p\n", r, (void *)l->s);
     break;
   case csvTp_Cv:
-    printf("C %d/%d", r, c);
+    printf("V %u/%u", r, c);
     {
       unsigned char *d;
 
@@ -32,9 +32,9 @@ cb(
       if (!(d = malloc(l->l))
        || (i = csvDecodeValue(d, l->l, l->s, l->l)) < 0
        || i > (int)l->l)
-        printf(": \"%.*s\"(%d:%u)\n", l->l, l->s, i, l->l);
+        printf(":%.*s:%d:%u\n", l->l, l->s, i, l->l);
       else
-        printf(": \"%.*s\"(%.*s)\n", l->l, l->s, i, d);
+        printf(":%.*s~%.*s\n", l->l, l->s, i, d);
       free(d);
     }
     break;
