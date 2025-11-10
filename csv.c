@@ -46,15 +46,13 @@ val:
   vl.s = s;
   for (; l--;) switch (*s++) {
   case '\n':
-    --s;
-    vl.l = s - vl.s;
+    vl.l = s - vl.s - (*(s - 2) == '\r' ? 2 : 1);
     if (c && c(csvTp_Cv, rw, cl, &vl, v))
       goto rtn;
-    vl.s = s, vl.l = 0;
+    vl.s = s - 1, vl.l = 0;
     if (c && c(csvTp_Ce, rw, cl, &vl, v))
       goto rtn;
     ++rw;
-    ++s;
     goto bgn;
 
   case '\r':

@@ -18,3 +18,5 @@ check: coders main
 	./coders
 	./main 0 test/test.csv
 	./main 1 test/test.csv
+	./main 0 test/testCRLF.csv
+	./main 1 test/testCRLF.csv
