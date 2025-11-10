@@ -6,7 +6,7 @@ No dependencies. No dynamic memory allocation. No recursion. No memory copying. 
 This parser has a couple differences from RFC 4180:
 
 * It allows double quote delimited text anywhere in a value, not only the first and last characters.
-# It accepts CR,NL or NL to terminate rows
+* It accepts CR,NL or NL to terminate rows
 * It requires a CR,NL or NL to terminate the last row.
 
 To *check* that a CSV string can be parsed, use a NULL callback and verify the return offset is the same as the source length.
