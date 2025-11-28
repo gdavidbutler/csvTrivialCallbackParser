@@ -18,6 +18,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef __CSV_H__
+#define __CSV_H__
+
 /* csv "string" (fragment) is not \0 terminated */
 typedef struct {
   const unsigned char *s;
@@ -67,3 +70,5 @@ int csvEncodeValue(
  ,const unsigned char *in
  ,unsigned int ilen
 );
+
+#endif /* __CSV_H__ */
