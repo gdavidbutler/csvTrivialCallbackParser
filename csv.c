@@ -46,7 +46,7 @@ val:
   vl.s = s;
   for (; l--;) switch (*s++) {
   case '\n':
-    vl.l = s - vl.s - (*(s - 2) == '\r' ? 2 : 1);
+    vl.l = s - vl.s - ((s - vl.s > 1 && *(s - 2) == '\r') ? 2 : 1);
     if (c && c(csvTp_Cv, rw, cl, &vl, v))
       goto rtn;
     vl.s = s - 1, vl.l = 0;

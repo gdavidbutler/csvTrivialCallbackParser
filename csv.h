@@ -45,7 +45,6 @@ typedef int (*csvCb_t)(
 );
 
 /* return -1 on error else offset of last char parsed */
-/* provide a tag buffer large enough for the deepest level of nesting supported */
 int csvParse(
   csvCb_t
  ,const unsigned char *csv
